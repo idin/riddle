@@ -1,9 +1,9 @@
 from .encrypt import encrypt as _encrypt
 from .encrypt import decrypt as _decrypt
 from .hash import hash as _hash
-from .hash import hash_dictionary as _hash_dictionary
 
 import dill
+
 
 class Riddle:
 	# a class that can encrypt or decrypt an object
@@ -40,3 +40,4 @@ class Riddle:
 	@staticmethod
 	def hash(obj, base=64):
 		return _hash(obj=obj, base=base)
+
