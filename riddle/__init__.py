@@ -1,4 +1,4 @@
-from .Riddle import Riddle
-from .Riddle import Riddle as Riddler
+from .Locket import Locket
+from .Locket import Locket as Riddler
 from .encrypt import encrypt, decrypt
 

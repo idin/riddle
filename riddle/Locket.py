@@ -5,7 +5,7 @@ from .hash import hash as _hash
 import dill
 
 
-class Riddle:
+class Locket:
 	# a class that can encrypt or decrypt an object
 	def __init__(self, key, hash=True, base=64):
 		if hash:
