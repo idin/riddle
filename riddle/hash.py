@@ -14,12 +14,12 @@ def make_hashable(obj):
 	return obj
 
 def hash(obj, base=64):
-	hasher = hashlib.sha256()
-	hasher.update(repr(make_hashable(obj)).encode())
+	hash_maker = hashlib.sha256()
+	hash_maker.update(repr(make_hashable(obj)).encode())
 	if base==64:
-		return base64.b64encode(hasher.digest()).decode()
+		return base64.b64encode(hash_maker.digest()).decode()
 	elif base==32:
-		return base32hex.b32encode(hasher.digest()).replace('=', '-')
+		return base32hex.b32encode(hash_maker.digest()).replace('=', '-')
 	else:
 		raise ValueError(f'base{base} is unknown!')
 

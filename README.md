@@ -11,19 +11,21 @@ pip install riddle
 ## Usage
 
 ```python
-from riddle import Locket
-
-# initialize a Locket
-locket = Locket(key=1234)
-
-# encrypt an object
-encrypted = locket.encrypt(x=['Hello World!', 123])
-
-print(encrypted)
-# acKiw6jCnlvCvsKqw5_CoMOCw6dSwp_DpMK5w5jCmMKNYsOnwos_wrZ7emrCnMKEw4p6
-
-# decrypt the encrypted object
-decrypted = locket.decrypt(x=encrypted)
-print(decrypted)
-# ['Hello World!', 123]
+from riddle import Riddle
+riddle = Riddle(key=1245)
+encrypted = riddle.encrypt(obj=['Hello World!', 123])
+print('Encrypted:\n\n', encrypted, '\n\n')
+decrypted = riddle.decrypt(encrypted)
+print('Decrypted:\n\n', decrypted)
 ```
+
+**produces:** 
+> Encrypted:
+>
+> wpLCr8OCfFjDjcKowqnDqcOFbcKYwrXDmcOXeMK6woZuwpVbw47DpMKiQ8OHwpnCr8Khw5XDpcKVw43Dm8Kdwr_Cq3N5wrrCokDCpsKJwpt1woXCmFjDmMOFwo7Cp8KIwoHCgcKNwprCocKhf8KKwpdobMKSwqTCpG_CosKGVMKWwpc= 
+>
+> Decrypted:
+>
+> ['Hello World!', 123]
+>
+
