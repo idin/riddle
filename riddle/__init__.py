@@ -1,3 +1,5 @@
-from .Riddle import Riddle
-from .encrypt import encrypt, decrypt
 
+from .encrypt import encrypt, decrypt
+from .Riddle import Riddle
+from .Box import Box
+from .Locket import Locket
