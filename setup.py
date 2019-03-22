@@ -6,7 +6,7 @@ def readme():
 
 setup(
 	name='riddle',
-	version='0.0.2',
+	version='0.0.4',
 	license='MIT',
 
 	author='Idin',
