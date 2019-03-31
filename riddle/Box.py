@@ -3,6 +3,7 @@ import atexit
 from chronology import get_elapsed_seconds, get_now
 
 
+# Box is an object that saves itself to the disk
 class Box:
 	def __init__(self, path, save_interval_seconds=60):
 		self._path = Path(string=path)
@@ -31,7 +32,6 @@ class Box:
 		self._save_interval_seconds = state['save_interval_seconds']
 		self._save_time = state['save_time']
 		self.load(append=True)
-		self.check()
 		atexit.register(self.save)
 
 

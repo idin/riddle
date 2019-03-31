@@ -2,6 +2,7 @@ from .Riddle import Riddle
 from .Box import Box
 
 
+# Locket is a Box that uses a Riddle to encrypt objects before storing and decrypt them after accessing
 class Locket(Box):
 	def __init__(self, path, key=None, save_interval_seconds=60):
 		super().__init__(path=path, save_interval_seconds=save_interval_seconds)
