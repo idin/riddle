@@ -5,6 +5,8 @@ from .hash import hash as _hash
 import random
 import dill
 
+
+# Riddle encrypts and decrypts objects
 class Riddle:
 	_ENCRYPTION_CHECK = 'Marvolo'
 
@@ -15,7 +17,8 @@ class Riddle:
 		self._dict = {}
 		if key is not None:
 			key = str(key)
-		self._key = key
+		self._key = None
+		self.unlock(key=key)
 
 	def __getstate__(self):
 		return {
@@ -53,7 +56,6 @@ class Riddle:
 		encrypted_item = self._dict[item]
 		return self.decrypt(encrypted_item)
 
-
 	def set(self, item, obj):
 		encrypted_item = self.encrypt(obj=obj)
 		self._dict[item] = encrypted_item
@@ -69,7 +71,12 @@ class Riddle:
 		# second element is the actual object
 		# third element is to make cracking the encryption harder
 		key = self.key
-		obj_plus = [self._ENCRYPTION_CHECK, obj, random.uniform(0, 1)]
+		obj_plus = (
+			str(round(random.uniform(0, 1), 3)),
+			self._ENCRYPTION_CHECK,
+			obj,
+			str(round(random.uniform(0, 1), 3))
+		)
 		clear = dill.dumps(obj_plus, protocol=0)
 		decoded = clear.decode(encoding='utf-8')
 		return _encrypt(key=key, clear=decoded)
@@ -78,9 +85,9 @@ class Riddle:
 		key = self.key
 		clear_string = _decrypt(key=key, encrypted=obj)
 		decrypted_list = dill.loads(clear_string.encode(encoding='utf-8'))
-		if decrypted_list[0] != self._ENCRYPTION_CHECK:
+		if decrypted_list[1] != self._ENCRYPTION_CHECK:
 			raise KeyError('Riddle: decryption failed!')
-		return decrypted_list[1]
+		return decrypted_list[2]
 
 	def save(self, x, path):
 		encrypted = self.encrypt(x)
