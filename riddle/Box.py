@@ -46,7 +46,6 @@ class Box:
 		"""
 		:rtype: Path
 		"""
-		self.check()
 		return self._path
 
 	def load(self, append=True, echo=0):
