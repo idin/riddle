@@ -34,7 +34,6 @@ class Box:
 		self.load(append=True)
 		atexit.register(self.save)
 
-
 	def check(self, echo=0):
 		echo = max(0, echo)
 		# if the number of items increased by more than 10% o
