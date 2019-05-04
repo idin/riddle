@@ -27,7 +27,7 @@ setup(
 	],
 
 	packages=find_packages(exclude=("jupyter_tests", ".idea", ".git")),
-	install_requires=['dill', 'base32hex', 'route', 'chronology'],
+	install_requires=['dill', 'base32hex', 'disk', 'chronology'],
 	python_requires='~=3.6',
 	zip_safe=True
 )
