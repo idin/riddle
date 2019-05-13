@@ -1,6 +1,6 @@
 from .encrypt import encrypt as _encrypt
 from .encrypt import decrypt as _decrypt
-from .hash import hash as _hash
+from slytherin.hash import hash_object
 
 import random
 import dill
@@ -99,4 +99,4 @@ class Riddle:
 
 	@staticmethod
 	def hash(obj, base=64):
-		return _hash(obj=obj, base=base)
+		return hash_object(obj=obj, base=base)
