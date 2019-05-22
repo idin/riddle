@@ -1,5 +1,6 @@
 from .Riddle import Riddle
-from .Box import Box
+
+from disk import Box
 
 
 # Locket is a Box that uses a Riddle to encrypt objects before storing and decrypt them after accessing
