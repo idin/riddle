@@ -1,12 +1,14 @@
 from setuptools import setup, find_packages
 
+
 def readme():
 	with open('./README.md') as f:
 		return f.read()
 
+
 setup(
 	name='riddle',
-	version='0.0.4',
+	version='2019.12.29.4',
 	license='MIT',
 
 	author='Idin',
@@ -27,7 +29,7 @@ setup(
 	],
 
 	packages=find_packages(exclude=("jupyter_tests", ".idea", ".git")),
-	install_requires=['dill', 'base32hex', 'disk', 'chronology'],
+	install_requires=['dill', 'disk', 'pandas', 'chronometry', 'slytherin'],
 	python_requires='~=3.6',
 	zip_safe=True
 )

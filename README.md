@@ -1,15 +1,16 @@
-# Riddle
+# *Riddle*
 
 Riddle is a Python library for encryption.
 
-## Installation
+# Installation
 
 ```bash
 pip install riddle
 ```
 
-## Usage
+# Usage
 
+## ``Riddle``
 ```python
 from riddle import Riddle
 riddle = Riddle(key=1245)
@@ -29,3 +30,24 @@ print('Decrypted:\n\n', decrypted)
 > ['Hello World!', 123]
 >
 
+## ``SecretKeeper``
+```python
+from riddle import SecretKeeper
+from pandas import DataFrame
+
+data = DataFrame({
+    'name': ['John', 'Jack', 'Joe'], 
+    'age': [12, 13, 14], 
+    'random': [[1,2,3], [1,2,3], [1]]
+})
+
+data['age_divided_by_ten'] = data['age'] / 10
+
+keeper = SecretKeeper()
+
+anonymized_data = keeper.anonymize(data=data)
+
+identified_data = keeper.identify(data=anonymized_data)
+
+data.equals(identified_data) # returns True
+```
