@@ -8,7 +8,7 @@ def readme():
 
 setup(
 	name='riddle',
-	version='2019.12.29.4',
+	version='2020.1.6',
 	license='MIT',
 
 	author='Idin',
